@@ -86,20 +86,20 @@ class Reviewer(Mentor):
         )
 
 def average_student_grade(students:list, course:str):
-    sum_, number = 0, 0
+    sum_of_grades, raiting_count = 0, 0
     for student in students:
         if isinstance(student, Student) and course in student.courses_in_progress:
-            sum_ += sum(student.grades[course])
-            number += len(student.grades[course])
-    return round(sum_ / number, 1)
+            sum_of_grades += sum(student.grades[course])
+            raiting_count += len(student.grades[course])
+    return round(sum_of_grades / raiting_count, 1)
 
 def average_lecture_grade(lecturs:list, course:str):
-    sum_, number = 0, 0
+    sum_of_grades, rating_count = 0, 0
     for lecture in lecturs:
         if isinstance(lecture, Lecture) and course in lecture.courses_attached:
-            sum_ += sum(lecture.grades[course])
-            number += len(lecture.grades[course])
-    return round(sum_ / number, 1)
+            sum_of_grades += sum(lecture.grades[course])
+            rating_count += len(lecture.grades[course])
+    return round(sum_of_grades / rating_count, 1)
 
 
 student1 = Student('Антон', 'Городецкий', 'Муж')
